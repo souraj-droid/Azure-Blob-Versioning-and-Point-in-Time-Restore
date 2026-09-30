@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": { "value": "centralindia" },
+    "storageAccountName": { "value": "t258blob1986" },
+    "containerName": { "value": "data-protection" },
+    "softDeleteDays": { "value": 31 },
+    "pitRestoreDays": { "value": 30 },
+    "tierCoolAfterDays": { "value": 7 },
+    "deleteVersionAfterDays": { "value": 31 },
+    "appName": { "value": "t258-blob-1986" },
+    "appServicePlanSku": { "value": "B1" },
+    "projectCode": { "value": "24CC3046-P054" },
+    "teamCode": { "value": "T258" },
+    "studentLeadId": { "value": "2400032992" }
+  }
+}

@@ -1,0 +1,11 @@
+### List versions of report.txt
+GET http://localhost:8080/api/blobs/report.txt/versions
+
+### Get one version (replace VERSION_ID)
+GET http://localhost:8080/api/blobs/report.txt/versions/VERSION_ID
+
+### Download one version
+GET http://localhost:8080/api/blobs/report.txt/versions/VERSION_ID/download
+
+### Protection status
+GET http://localhost:8080/api/protection/status

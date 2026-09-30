@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.t258</groupId>
+  <artifactId>24CC3046-P054-T258-Azure-Blob-Data-Protection</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>24CC3046-P054 T258 - Azure Blob Data Protection (parent)</name>
+  <description>Parent aggregator for T258 Blob Versioning and Point-in-Time Restore project.</description>
+  <modules>
+    <module>backend</module>
+  </modules>
+</project>

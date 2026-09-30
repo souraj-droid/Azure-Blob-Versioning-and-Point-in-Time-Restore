@@ -1,0 +1,15 @@
+### Upload report.txt (v1)
+POST http://localhost:8080/api/blobs/upload
+Content-Type: multipart/form-data; boundary=BOUNDARY
+--BOUNDARY
+Content-Disposition: form-data; name="file"; filename="report.txt"
+Content-Type: text/plain
+
+This is the original project report.
+--BOUNDARY--
+
+### List blobs
+GET http://localhost:8080/api/blobs
+
+### Download current
+GET http://localhost:8080/api/blobs/report.txt/download

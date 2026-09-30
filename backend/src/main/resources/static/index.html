@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Azure Blob Data Protection — T258</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <h1>Azure Blob Data Protection — T258</h1>
+  <p class="sub">24CC3046-P054 &middot; Blob Versioning + Point-in-Time Restore &middot; 30-day recovery</p>
+  <p class="sub">Team T258 &middot; Lead 2400032992 &middot; Members 2400032987, 2400032887, 2400032886</p>
+</header>
+
+<main>
+<section class="card" id="statusCard">
+  <h2>Data Protection Status</h2>
+  <p class="sub">Azure protection settings are configured and verified by the deployment verification script (<code>verify-azure.ps1</code>).</p>
+  <div id="statusGrid" class="grid"><p>Loading…</p></div>
+  <p class="warn" id="statusWarn"></p>
+  <p class="sub" id="statusNote"></p>
+  <button onclick="loadStatus()">Refresh status</button>
+</section>
+
+<section class="card">
+  <h2>Blob Management (normal user)</h2>
+  <p class="sub">Upload, view blobs, view versions. <b>Version Restore: restore a selected previous blob version.</b></p>
+  <div class="row">
+    <input type="file" id="fileInput" />
+    <button onclick="upload()">Upload Blob</button>
+    <button onclick="listBlobs()">List Blobs</button>
+  </div>
+  <div id="blobList"></div>
+  <div class="row">
+    <input id="blobName" placeholder="blob name e.g. report.txt" />
+    <button onclick="showVersions()">Versions</button>
+  </div>
+  <div id="versionList"></div>
+  <div id="msg" class="msg"></div>
+</section>
+
+<section class="card">
+  <h2>Point-in-Time Restore (administrator only)</h2>
+  <p><b>Restore supported block-blob data to an earlier UTC point in time. Administrator permission required.</b></p>
+  <p>PIT Restore requires <b>Storage Account Contributor</b>. Normal application users cannot execute PIT restore; they should use Version Restore above. This form validates the timestamp and prepares the administrator command — it does not perform the restore itself.</p>
+  <p class="sub">Demo note: The 30-day PIT window is configured from the date PIT restore was enabled. The full 30-day historical range becomes available as time passes. For a valid demo, create changes after PIT was enabled (e.g. 20:00 original, 20:05/20:10/20:15 updates) and restore to 20:05.</p>
+  <div class="row">
+    <input id="pitTime" placeholder="2026-09-20T14:30:00Z" />
+    <button onclick="validatePit()">Validate</button>
+    <button class="danger" onclick="requestPit()">Request Admin Restore</button>
+  </div>
+  <p class="sub">Validation only — an administrator runs the Azure Restore Blob Ranges operation. Only one restore per account at a time.</p>
+  <div id="pitOut" class="msg"></div>
+</section>
+
+<section class="card">
+  <h2>Demo: accidental overwrite (report.txt)</h2>
+  <ol>
+    <li>Upload <code>report.txt</code> with "This is the original project report."</li>
+    <li>Overwrite it with "This report contains incorrect data."</li>
+    <li>Open Versions, then Restore the previous version.</li>
+    <li>Download current to confirm recovery.</li>
+  </ol>
+</section>
+</main>
+
+<footer><small>Spring Boot + Azure Blob Storage (DefaultAzureCredential, no keys in code). PIT restores block-blob data only — not deleted containers.</small></footer>
+<script src="app.js"></script>
+</body>
+</html>

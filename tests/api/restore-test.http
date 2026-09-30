@@ -1,0 +1,16 @@
+### Restore previous version (replace VERSION_ID with v1 id)
+POST http://localhost:8080/api/blobs/report.txt/restore/VERSION_ID
+
+### PIT restore request (admin - validated, then run CLI)
+POST http://localhost:8080/api/restore/point-in-time
+Content-Type: application/json
+
+{
+  "restoreTime": "2026-09-20T14:30:00Z"
+}
+
+### PIT status
+GET http://localhost:8080/api/restore/status/pit-XXXX
+
+### Real Azure PIT restore (admin, Storage Account Contributor required)
+# az storage blob restore --account-name <storage-account> --resource-group <rg> --time "2026-09-20T14:30:00Z" --blob-range "data-protection/*"

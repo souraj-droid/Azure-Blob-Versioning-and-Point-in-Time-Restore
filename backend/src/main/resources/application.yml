@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: t258-dataprotection
+
+azure:
+  storage:
+    account-name: ${AZURE_STORAGE_ACCOUNT:}
+    container-name: ${AZURE_STORAGE_CONTAINER:data-protection}
+    subscription-id: ${AZURE_SUBSCRIPTION_ID:}
+    resource-group: ${AZURE_RESOURCE_GROUP:}
+    pit-restore-days: ${PIT_RESTORE_DAYS:30}
+    soft-delete-days: ${SOFT_DELETE_DAYS:31}
+    tier-cool-after-days: ${TIER_COOL_AFTER_DAYS:7}
+    delete-version-after-days: ${DELETE_VERSION_AFTER_DAYS:31}
+
+logging:
+  level:
+    com.t258: INFO
+    com.azure: WARN

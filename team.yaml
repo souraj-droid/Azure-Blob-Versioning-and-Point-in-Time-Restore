@@ -1,0 +1,13 @@
+project:
+  code: "24CC3046-P054"
+  team: "T258"
+  title: "Azure Blob Versioning and Point-in-Time Restore"
+  domain: "DATA PROTECTION"
+team:
+  lead:
+    studentId: "2400032992"
+  members:
+    - studentId: "2400032987"
+    - studentId: "2400032887"
+    - studentId: "2400032886"
+notes: "Do not use student IDs as passwords, keys, or secrets."
